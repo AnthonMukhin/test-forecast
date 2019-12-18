@@ -416,6 +416,12 @@ body {
 @media screen and (max-width: 680px) {
   .header {
     flex-direction: column;
+    padding: 25px 5%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .header {
+    padding: 25px 4% 5px;
   }
 }
 
@@ -560,21 +566,22 @@ main {
 }
 
 .weather {
-  width: 600px;
+  max-width: 710px;
 }
 @media screen and (max-width: 1200px) {
   .weather {
-    width: 480px;
+    max-width: 540px;
   }
 }
 @media screen and (max-width: 980px) {
   .weather {
-    width: 350px;
+    max-width: 430px;
   }
 }
 @media screen and (max-width: 680px) {
   .weather {
     width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -583,6 +590,9 @@ main {
   min-height: 100vh;
   margin: 0 auto;
   background-image: -webkit-linear-gradient(180deg, rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .days-forecast {
@@ -598,6 +608,14 @@ main {
 
 .days-forecast__item {
   list-style: none;
+}
+.days-forecast__item:not(:last-child) {
+  margin-right: 20px;
+}
+@media screen and (max-width: 400px) {
+  .days-forecast__item:not(:last-child) {
+    margin-right: 12px;
+  }
 }
 
 .days-forecast__forecast {
@@ -623,6 +641,13 @@ main {
     line-height: 18px;
   }
 }
+@media screen and (max-width: 400px) {
+  .days-forecast__day {
+    margin: 5px 0 12px;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
 
 .days-forecast__temp {
   margin: 0;
@@ -644,6 +669,12 @@ main {
     line-height: 47px;
   }
 }
+@media screen and (max-width: 400px) {
+  .days-forecast__temp {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
 
 .days-forecast__icon {
   width: auto;
@@ -661,6 +692,11 @@ main {
     height: 35px;
   }
 }
+@media screen and (max-width: 4000px) {
+  .days-forecast__icon {
+    height: 30px;
+  }
+}
 
 .today-forecast {
   display: flex;
@@ -672,7 +708,7 @@ main {
   position: relative;
   z-index: 2;
   margin: 20px 0 0 0;
-  font-size: 306px;
+  font-size: 304px;
   line-height: 373px;
   color: #ffffff;
   font-weight: 700;
@@ -691,6 +727,12 @@ main {
     line-height: 185px;
   }
 }
+@media screen and (max-width: 400px) {
+  .today-forecast__temperature {
+    font-size: 120px;
+    line-height: 160px;
+  }
+}
 
 .today-forecast__unit {
   position: relative;
@@ -698,6 +740,18 @@ main {
   font-size: 100px;
   line-height: 200px;
   vertical-align: top;
+}
+@media screen and (max-width: 1200px) {
+  .today-forecast__unit {
+    font-size: 70px;
+    line-height: 170px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .today-forecast__unit {
+    font-size: 60px;
+    line-height: 130px;
+  }
 }
 
 .today-forecast__icon {
@@ -724,6 +778,11 @@ main {
     margin: 0 0 40px 0;
   }
 }
+@media screen and (max-width: 980px) {
+  .today-forecast__list {
+    margin: 0 0 30px 0;
+  }
+}
 
 .today-forecast__item {
   font-size: 22px;
@@ -735,23 +794,39 @@ main {
 }
 @media screen and (max-width: 1200px) {
   .today-forecast__item {
-    font-size: 20px;
-    line-height: 33px;
+    font-size: 19px;
+    line-height: 28px;
   }
 }
 @media screen and (max-width: 980px) {
   .today-forecast__item {
     font-size: 16px;
-    line-height: 25px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .today-forecast__item {
+    font-size: 12px;
+    line-height: 17px;
   }
 }
 
 .location {
-  margin: 100px 0 0 0;
+  margin: 100px 0 0 20px;
 }
 @media screen and (max-width: 980px) {
   .location {
-    margin: 80px 0 0 0;
+    margin: 80px 0 0 20px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .location {
+    margin: 50px auto 20px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .location {
+    margin: 30px auto 20px;
   }
 }
 
@@ -769,6 +844,18 @@ main {
   .location__map {
     width: 250px;
     height: 250px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .location__map {
+    width: 320px;
+    height: 320px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .location__map {
+    width: 300px;
+    height: 300px;
   }
 }
 
@@ -789,5 +876,17 @@ main {
   .location__coord {
     font-size: 18px;
     line-height: 23px;
+  }
+}
+@media screen and (max-width: 980px) {
+  .location__coord {
+    font-size: 17px;
+    line-height: 21px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .location__coord {
+    font-size: 16px;
+    line-height: 20px;
   }
 }
