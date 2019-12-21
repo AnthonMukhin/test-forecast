@@ -378,6 +378,10 @@ body {
   border-radius: 5px;
   background-color: rgba(174, 181, 185, 0.5);
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+.button:hover {
+  background-color: rgba(159, 166, 170, 0.5);
 }
 .button--right {
   border-radius: 0 5px 5px 0;
@@ -387,6 +391,9 @@ body {
 }
 .button--active {
   background-color: rgba(76, 82, 85, 0.4);
+}
+.button--active:hover {
+  background-color: rgba(95, 102, 105, 0.4);
 }
 .button--image {
   margin: 0 10px 0 0;
@@ -453,10 +460,19 @@ body {
 
 .search {
   position: relative;
-  display: flex;
 }
 @media screen and (max-width: 680px) {
   .search {
+    width: 100%;
+  }
+}
+
+.search__form {
+  position: relative;
+  display: flex;
+}
+@media screen and (max-width: 680px) {
+  .search__form {
     width: 100%;
   }
 }
@@ -470,6 +486,11 @@ body {
   background: rgba(76, 82, 85, 0.4);
   border: 1px solid rgba(228, 227, 227, 0.2);
   border-radius: 5px 0 0 5px;
+}
+.search__input:-webkit-autofill, .search__inputt:-webkit-autofill:hover, .search__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  box-shadow: 0 0 0px 1000px rgba(76, 82, 85, 0.5) inset;
+  border: 1px solid gray;
 }
 .search__input::placeholder {
   font-family: "Montserrat", Arial, sans-serif;
@@ -487,11 +508,12 @@ body {
   position: relative;
   display: inline-block;
   height: 100%;
+  height: 44px;
 }
 @media screen and (max-width: 680px) {
   .search__wrapper {
     width: calc(100% - 101px);
-    height: 45px;
+    height: 44px;
   }
 }
 
@@ -508,9 +530,30 @@ body {
   transform: translateY(-45%);
   cursor: pointer;
 }
+.search__microphone::before {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  content: "";
+}
+.search__microphone--active::before {
+  animation: shadow-pulse 1s infinite;
+}
 
 .search__button {
   width: 101px;
+}
+
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 18px rgba(255, 255, 255, 0);
+  }
 }
 .info {
   font-family: "Montserrat", Arial, sans-serif;
@@ -587,12 +630,28 @@ main {
 
 .app {
   max-width: 1440px;
-  min-height: 100vh;
   margin: 0 auto;
-  background-image: -webkit-linear-gradient(180deg, rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%);
+  padding: 0 0 40px 0;
+  background-image: -webkit-linear-gradient(180deg, rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%), url(assets/images/app-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  transition: background-image 0.2s ease;
+}
+@media screen and (max-width: 1700px) {
+  .app {
+    min-height: 100vh;
+  }
+}
+@media screen and (max-width: 680px) {
+  .app {
+    padding: 0 0 10px 0;
+  }
+}
+@media screen and (max-width: 400px) {
+  .app {
+    padding: 0;
+  }
 }
 
 .days-forecast {
@@ -604,6 +663,11 @@ main {
   justify-content: space-between;
   margin: 0;
   padding: 0;
+}
+@media screen and (max-width: 680px) {
+  .days-forecast__list {
+    justify-content: space-around;
+  }
 }
 
 .days-forecast__item {
@@ -671,8 +735,8 @@ main {
 }
 @media screen and (max-width: 400px) {
   .days-forecast__temp {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 23px;
+    line-height: 33px;
   }
 }
 
@@ -692,9 +756,9 @@ main {
     height: 35px;
   }
 }
-@media screen and (max-width: 4000px) {
+@media screen and (max-width: 400px) {
   .days-forecast__icon {
-    height: 30px;
+    height: 28px;
   }
 }
 
@@ -702,6 +766,11 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+@media screen and (max-width: 680px) {
+  .today-forecast {
+    justify-content: space-around;
+  }
 }
 
 .today-forecast__temperature {
@@ -727,10 +796,16 @@ main {
     line-height: 185px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 680px) {
   .today-forecast__temperature {
     font-size: 120px;
     line-height: 160px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .today-forecast__temperature {
+    font-size: 84px;
+    line-height: 120px;
   }
 }
 
@@ -751,6 +826,18 @@ main {
   .today-forecast__unit {
     font-size: 60px;
     line-height: 130px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .today-forecast__unit {
+    font-size: 50px;
+    line-height: 110px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .today-forecast__unit {
+    font-size: 50px;
+    line-height: 100px;
   }
 }
 
@@ -783,6 +870,11 @@ main {
     margin: 0 0 30px 0;
   }
 }
+@media screen and (max-width: 400px) {
+  .today-forecast__list {
+    margin: 0 0 22px 0;
+  }
+}
 
 .today-forecast__item {
   font-size: 22px;
@@ -804,10 +896,16 @@ main {
     line-height: 20px;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 980px) {
   .today-forecast__item {
     font-size: 12px;
-    line-height: 17px;
+    line-height: 18px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .today-forecast__item {
+    font-size: 10px;
+    line-height: 13px;
   }
 }
 
@@ -854,8 +952,8 @@ main {
 }
 @media screen and (max-width: 400px) {
   .location__map {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
   }
 }
 
@@ -895,6 +993,7 @@ main {
   width: 670px;
   margin: 20px 0 0 0;
   text-align: center;
+  opacity: 0.3;
 }
 @media screen and (max-width: 1200px) {
   .lds-facebook__wrapper {
@@ -903,7 +1002,7 @@ main {
 }
 @media screen and (max-width: 980px) {
   .lds-facebook__wrapper {
-    width: 400px;
+    width: 340px;
   }
 }
 @media screen and (max-width: 680px) {
@@ -953,73 +1052,4 @@ main {
     top: 24px;
     height: 32px;
   }
-}
-@keyframes spinner {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-.spinner-big div {
-  width: 0.5rem;
-  height: 4rem;
-  margin-top: -4rem;
-  margin-left: -0.25rem;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-top: 2rem solid #fff;
-  transform: rotate(calc(var(--i) * 30deg));
-  transform-origin: 50% 100%;
-  animation: spinner 1.2s calc((var(--i) - 12) * 0.1s) infinite;
-}
-
-div:nth-child(1) {
-  --i: 0;
-}
-
-div:nth-child(2) {
-  --i: 1;
-}
-
-div:nth-child(3) {
-  --i: 2;
-}
-
-div:nth-child(4) {
-  --i: 3;
-}
-
-div:nth-child(5) {
-  --i: 4;
-}
-
-div:nth-child(6) {
-  --i: 5;
-}
-
-div:nth-child(7) {
-  --i: 6;
-}
-
-div:nth-child(8) {
-  --i: 7;
-}
-
-div:nth-child(9) {
-  --i: 8;
-}
-
-div:nth-child(10) {
-  --i: 9;
-}
-
-div:nth-child(11) {
-  --i: 10;
-}
-
-div:nth-child(12) {
-  --i: 11;
 }
